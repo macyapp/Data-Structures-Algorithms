@@ -1,21 +1,16 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-bool strpal(string &s,int start,int end) {
+bool isPalindrome(string str, int start, int end) {
     if(start>=end)
         return true;
-    return (s[start]==s[end])&&strpal(s,start+1,end-1);
+
+    return ((str[start]==str[end]) &&
+            isPalindrome(str, start + 1, end - 1));
 }
 
 int main() {
-    string str;
-    cin>>str;
-
-    if(strpal(str,0,str.length()-1)) {
-        cout<<"Palindrome\n";
-    }
-    else {
-        cout<<"Not Palindrome\n";
-    }
+    string s = "GeekskeeG";
+    cout<<boolalpha<<isPalindrome(s,0,s.length()-1)<<'\n';
     return 0;
 }
