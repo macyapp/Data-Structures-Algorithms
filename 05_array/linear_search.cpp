@@ -9,12 +9,18 @@ int linearsearch(int a[], int s, int x) {
     return -1;
 }
 
+void print(int a[],int n) {
+    int i;
+    for(i=0;i<n;i++) {
+        cout<<a[i]<<' ';
+    }
+    cout<<'\n';
+}
+
 int main() {
     int arr[] = {20, 5, 7, 25}, x, i;
     int size=sizeof(arr)/sizeof(arr[0]);
-    for(i=0;i<size;i++) {
-        cout<<arr[i]<<' ';
-    }
+    print(arr,size);
     cout<<"\nEnter the element to be searched:\n";
     cin>>x;
 
