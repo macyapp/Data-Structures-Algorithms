@@ -1,3 +1,7 @@
+/*Header file contains all the declaration
+for the source file
+*/
+
 #ifndef MYCLASS_H
 #define MYCLASS_H
 
