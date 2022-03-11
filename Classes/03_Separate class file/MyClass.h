@@ -5,5 +5,8 @@ class MyClass {
 public:
     MyClass();
     ~MyClass();
+protected:
+private:
 };
-#endif
+
+#endif  // MYCLASS_H
