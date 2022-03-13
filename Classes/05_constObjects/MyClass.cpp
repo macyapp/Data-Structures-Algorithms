@@ -2,7 +2,6 @@
 #include "MyClass.h"
 using namespace std;
 
-int main() {
-    const MyClass obj;
-    obj.myPrint();
+void MyClass::myPrint() const {
+    cout<<"Hello, World!\n";
 }

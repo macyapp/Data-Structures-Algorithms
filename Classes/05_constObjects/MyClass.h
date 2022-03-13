@@ -3,10 +3,7 @@
 
 class MyClass {
 public:
-    MyClass();
-    void myPrint();
-protected:
-private:
+    void myPrint() const;
 };
 
 #endif  // MYCLASS_H
