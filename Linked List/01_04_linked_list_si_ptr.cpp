@@ -16,12 +16,14 @@ void printList(node *ptr) {
         cout<<ptr->data<<"->";
         ptr=ptr->next;
     }
-    cout<<"NULL\n";
+    if(ptr==NULL)
+        cout<<"NULL\n";
 }
 
 int main() {
-    node *head=NULL;
+    node *head;
     node *ptr;
+    /*
     ptr=new node(10);
     head=ptr;
     
@@ -30,7 +32,7 @@ int main() {
 
     ptr->next=new node(30);
     ptr=ptr->next;
-
+    */
     printList(head);
     return 0;
 }

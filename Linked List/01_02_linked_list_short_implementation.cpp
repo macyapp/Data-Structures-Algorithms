@@ -16,7 +16,8 @@ void printList(node *ptr) {
         cout<<ptr->data<<"->";
         ptr=ptr->next;
     }
-    cout<<"NULL\n";
+    if(ptr==NULL)
+        cout<<"NULL\n";
 }
 
 int main() {

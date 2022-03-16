@@ -7,12 +7,13 @@ public:
     node *next;   
 };
 
-void printList(node *p) {
-    while(p!=NULL) {
-        cout<<p->data<<" -> ";
-        p=p->next;
+void printList(node *ptr) {
+    while(ptr!=NULL) {
+        cout<<ptr->data<<" -> ";
+        ptr=ptr->next;
     }
-    cout<<"NULL\n";
+    if(ptr==NULL)
+        cout<<"NULL\n";
 }
 
 int main() {
