@@ -9,7 +9,7 @@ public:
 
 void printList(node *p) {
     while(p!=NULL) {
-        cout<<p->data<<"->";
+        cout<<p->data<<" -> ";
         p=p->next;
     }
     cout<<"NULL\n";
@@ -31,7 +31,7 @@ int main() {
 
     ptr->data=30;
     ptr->next=NULL;
-    
+
     printList(head);
 
     return 0;
