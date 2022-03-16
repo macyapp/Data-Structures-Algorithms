@@ -24,12 +24,11 @@ int main() {
     node *ptr;
     ptr=new node(10);
     head=ptr;
+    
+    ptr->next=new node(20);
     ptr=ptr->next;
 
-    ptr=new node(20);
-    ptr=ptr->next;
-
-    ptr=new node(30);
+    ptr->next=new node(30);
     ptr=ptr->next;
 
     printList(head);
