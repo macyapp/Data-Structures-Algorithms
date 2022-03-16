@@ -23,7 +23,6 @@ void printList(node *ptr) {
 int main() {
     node *head;
     node *ptr;
-    /*
     ptr=new node(10);
     head=ptr;
     
@@ -32,7 +31,7 @@ int main() {
 
     ptr->next=new node(30);
     ptr=ptr->next;
-    */
+    
     printList(head);
     return 0;
 }
