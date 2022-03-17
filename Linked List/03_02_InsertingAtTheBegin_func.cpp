@@ -26,7 +26,7 @@ public:
     }
 
     void insertBegin(int x) {
-        node *ptr=new node(x);
+        ptr=new node(x);
         ptr->next=head;
         head=ptr;
     }
@@ -49,7 +49,7 @@ public:
 int main() {
     LinkedList ll;
     ll.printList();
-    ll.insertEnd(15);
+    ll.insertBegin(15);
     ll.printList();
     ll.insertEnd(10);
     ll.printList();
