@@ -85,7 +85,7 @@ int main() {
     ll.printList();
     ll.deleteEnd();
     ll.printList();
-    ll.deleteEnd();
+    ll.deleteBegin();           // Change this to deleteEnd() to debug
     ll.printList();
 
     return 0;
