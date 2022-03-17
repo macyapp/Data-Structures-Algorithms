@@ -66,6 +66,7 @@ public:
             while(ptr->next!=NULL) {
                 ptr=ptr->next;
             }
+            delete ptr;             // Debug this
             ptr=NULL;
         }
     }
@@ -77,8 +78,8 @@ int main() {
 
     ll.insertEnd(15);
     ll.printList();
-    ll.deleteEnd();
-    ll.printList();
+    //ll.deleteEnd();
+    //ll.printList();
     ll.deleteEnd();
     ll.printList();
     return 0;
