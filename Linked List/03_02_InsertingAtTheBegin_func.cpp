@@ -20,10 +20,17 @@ void printList(node *ptr) {
         cout<<"NULL\n";
 }
 
+void insertBegin(node *&head, int x) {
+    node *ptr=new node(x);
+    ptr->next=head;
+    head=ptr;
+}
+
 int main() {
     node *head;
     node *ptr;
     // Initializing list
+    /*
     ptr=new node(10);
     head=ptr;
     
@@ -32,11 +39,11 @@ int main() {
 
     ptr->next=new node(30);
     ptr=ptr->next;
-
+    */
+   
+    printList(head);
     // Inserting at the beginning
-    ptr=new node(15);
-    ptr->next=head;
-    head=ptr;
+    insertBegin(head,15);
     
     printList(head);
     return 0;
