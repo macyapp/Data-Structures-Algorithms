@@ -31,6 +31,26 @@ public:
         head=ptr;
     }
 
+    void deleteBegin() {
+        ptr=head->next;
+        delete head;
+        head=ptr;
+    }
+
+    void deleteEnd() {
+        ptr=head;
+        if(ptr==NULL) {
+            cout<<"List is already empty\n";
+        }
+        else {
+            while(ptr->next->next!=NULL) {
+                ptr=ptr->next;
+            }
+            delete ptr->next;
+            ptr->next=NULL;
+        }
+    }
+
     void insertEnd(int x) {
         ptr=head;
         if(ptr==NULL) {                 // If list is empty
@@ -56,6 +76,16 @@ int main() {
     ll.insertEnd(20);
     ll.printList();
     ll.insertEnd(30);
+    ll.printList();
+    ll.deleteBegin();
+    ll.printList();
+    ll.deleteEnd();
+    ll.printList();
+    ll.deleteEnd();
+    ll.printList();
+    ll.deleteEnd();
+    ll.printList();
+    ll.deleteEnd();
     ll.printList();
 
     return 0;
