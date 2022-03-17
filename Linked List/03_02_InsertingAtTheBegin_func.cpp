@@ -46,37 +46,40 @@ public:
     }
 
     void deleteBegin() {
-        if(ptr!=NULL) {
+        ptr=head;
+        if(ptr==NULL) {
+            cout<<"List is already empty\n";
+        }
+        else {
             ptr=head->next;
             delete head;
             head=ptr;
-        }
-        else {
-            cout<<"List is already empty\n";
         }
     }
 
     void deleteEnd() {
         ptr=head;
-        if(ptr!=NULL) {
+        if(ptr==NULL) {
+            cout<<"List is already empty\n";
+        }
+        else {
             while(ptr->next!=NULL) {
                 ptr=ptr->next;
             }
-            delete ptr;
             ptr=NULL;
         }
-
     }
 
 };
 
 int main() {
     LinkedList ll;
-    ll.printList();
-    ll.deleteBegin();
+
     ll.insertEnd(15);
     ll.printList();
-    ll.deleteBegin();
+    ll.deleteEnd();
+    ll.printList();
+    ll.deleteEnd();
     ll.printList();
     return 0;
 }
