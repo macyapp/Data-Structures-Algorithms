@@ -62,13 +62,15 @@ public:
         if(ptr==NULL) {
             cout<<"List is already empty\n";
         }
-        else if(ptr->next==NULL) {          // Case for single node
+        // Case for single node
+        else if(ptr->next==NULL) {
             ptr=head->next;
             delete head;
             head=ptr;
         }
+        // More than one node
         else {
-            while(ptr->next->next!=NULL) {  // More than one node
+            while(ptr->next->next!=NULL) {
                 ptr=ptr->next;
             }
             delete ptr->next;
