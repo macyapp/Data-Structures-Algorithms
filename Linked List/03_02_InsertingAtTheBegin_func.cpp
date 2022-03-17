@@ -57,7 +57,6 @@ public:
         }
     }
 
-    // Debug this !!!
     void deleteEnd() {
         ptr=head;
         if(ptr==NULL) {
