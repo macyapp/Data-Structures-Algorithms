@@ -4,7 +4,7 @@ using namespace std;
 class node {
 public:
     int data;
-    node *next;
+    node *next;   
 };
 
 void printList(node *ptr) {
@@ -34,5 +34,6 @@ int main() {
     ptr->next=NULL;
 
     printList(head);
+
     return 0;
 }
