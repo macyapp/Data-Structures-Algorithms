@@ -63,12 +63,17 @@ public:
         if(ptr==NULL) {
             cout<<"List is already empty\n";
         }
+        else if(ptr->next==NULL) {
+            ptr=head->next;
+            delete head;
+            head=ptr;
+        }
         else {
-            while(ptr->next!=NULL) {
+            while(ptr->next->next!=NULL) {
                 ptr=ptr->next;
             }
-            delete ptr;
-            ptr=NULL;
+            delete ptr->next;
+            ptr->next=NULL;
         }
     }
 
@@ -79,8 +84,10 @@ int main() {
 
     ll.insertEnd(15);
     ll.printList();
-    //ll.deleteEnd();
-    //ll.printList();
+    ll.insertEnd(10);
+    ll.printList();
+    ll.deleteEnd();
+    ll.printList();
     ll.deleteEnd();
     ll.printList();
     return 0;
