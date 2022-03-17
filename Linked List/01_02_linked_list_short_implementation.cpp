@@ -11,13 +11,12 @@ public:
     }   
 };
 
-void printList(node *head) {
-    node *curr=head;
-    while(curr!=NULL) {
-        cout<<curr->data<<"->";
-        curr=curr->next;
+void printList(node *ptr) {
+    while(ptr!=NULL) {
+        cout<<ptr->data<<"->";
+        ptr=ptr->next;
     }
-    if(curr==NULL)
+    if(ptr==NULL)
         cout<<"NULL\n";
 }
 
