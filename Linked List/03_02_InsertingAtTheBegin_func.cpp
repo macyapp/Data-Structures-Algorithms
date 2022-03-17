@@ -30,27 +30,7 @@ public:
         ptr->next=head;
         head=ptr;
     }
-
-    void deleteBegin() {
-        ptr=head->next;
-        delete head;
-        head=ptr;
-    }
-
-    void deleteEnd() {
-        ptr=head;
-        if(ptr==NULL) {
-            cout<<"List is already empty\n";
-        }
-        else {
-            while(ptr->next->next!=NULL) {
-                ptr=ptr->next;
-            }
-            delete ptr->next;
-            ptr->next=NULL;
-        }
-    }
-
+    
     void insertEnd(int x) {
         ptr=head;
         if(ptr==NULL) {                 // If list is empty
@@ -64,29 +44,39 @@ public:
             ptr->next=new node(x);
         }
     }
+
+    void deleteBegin() {
+        if(ptr!=NULL) {
+            ptr=head->next;
+            delete head;
+            head=ptr;
+        }
+        else {
+            cout<<"List is already empty\n";
+        }
+    }
+
+    void deleteEnd() {
+        ptr=head;
+        if(ptr!=NULL) {
+            while(ptr->next!=NULL) {
+                ptr=ptr->next;
+            }
+            delete ptr;
+            ptr=NULL;
+        }
+
+    }
+
 };
 
 int main() {
     LinkedList ll;
     ll.printList();
-    ll.insertBegin(15);
-    ll.printList();
-    ll.insertEnd(10);
-    ll.printList();
-    ll.insertEnd(20);
-    ll.printList();
-    ll.insertEnd(30);
+    ll.deleteBegin();
+    ll.insertEnd(15);
     ll.printList();
     ll.deleteBegin();
     ll.printList();
-    ll.deleteEnd();
-    ll.printList();
-    ll.deleteEnd();
-    ll.printList();
-    ll.deleteEnd();
-    ll.printList();
-    ll.deleteBegin();           // Change this to deleteEnd() to debug
-    ll.printList();
-
     return 0;
 }
