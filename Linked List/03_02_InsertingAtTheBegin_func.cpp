@@ -57,6 +57,7 @@ public:
         }
     }
 
+    // Debug this !!!
     void deleteEnd() {
         ptr=head;
         if(ptr==NULL) {
@@ -66,7 +67,7 @@ public:
             while(ptr->next!=NULL) {
                 ptr=ptr->next;
             }
-            delete ptr;             // Debug this
+            delete ptr;
             ptr=NULL;
         }
     }
