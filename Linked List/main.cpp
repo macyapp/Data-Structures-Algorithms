@@ -99,7 +99,7 @@ public:
                 ptr->next=newNode;
             }
             else {
-                cout<<"Previous node is NULL\n";
+                cout<<"Last node already points to NULL\n";
             }
 
         }
