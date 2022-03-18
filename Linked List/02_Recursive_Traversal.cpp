@@ -11,26 +11,26 @@ public:
     }   
 };
 
-void printListRec(node *ptr) {
-    if(ptr==NULL) {
+void printListRec(node *cur) {
+    if(cur==NULL) {
         cout<<"NULL\n";
         return;
     }
-    cout<<ptr->data<<"->";
-    printListRec(ptr->next);
+    cout<<cur->data<<"->";
+    printListRec(cur->next);
 }
 
 int main() {
     node *head;
-    node *ptr;
-    ptr=new node(10);
-    head=ptr;
+    node *cur;
+    cur=new node(10);
+    head=cur;
     
-    ptr->next=new node(20);
-    ptr=ptr->next;
+    cur->next=new node(20);
+    cur=cur->next;
 
-    ptr->next=new node(30);
-    ptr=ptr->next;
+    cur->next=new node(30);
+    cur=cur->next;
     
     printListRec(head);
     return 0;

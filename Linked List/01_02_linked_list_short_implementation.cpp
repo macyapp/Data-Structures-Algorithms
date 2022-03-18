@@ -11,12 +11,12 @@ public:
     }   
 };
 
-void printList(node *ptr) {
-    while(ptr!=NULL) {
-        cout<<ptr->data<<"->";
-        ptr=ptr->next;
+void printList(node *cur) {
+    while(cur!=NULL) {
+        cout<<cur->data<<"->";
+        cur=cur->next;
     }
-    if(ptr==NULL)
+    if(cur==NULL)
         cout<<"NULL\n";
 }
 

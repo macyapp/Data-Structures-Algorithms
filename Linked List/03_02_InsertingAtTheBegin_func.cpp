@@ -14,67 +14,67 @@ public:
 class LinkedList {
 public:
     node *head;
-    node *ptr;
+    node *cur;
     void printList() {
-        ptr=head;
-        while(ptr!=NULL) {
-            cout<<ptr->data<<"->";
-            ptr=ptr->next;
+        cur=head;
+        while(cur!=NULL) {
+            cout<<cur->data<<"->";
+            cur=cur->next;
         }
-        if(ptr==NULL)
+        if(cur==NULL)
             cout<<"NULL\n";
     }
 
     void insertBegin(int x) {
-        ptr=new node(x);
-        ptr->next=head;
-        head=ptr;
+        cur=new node(x);
+        cur->next=head;
+        head=cur;
     }
     
     void insertEnd(int x) {
-        ptr=head;
-        if(ptr==NULL) {                 // If list is empty
-            ptr=new node(x);
-            head=ptr;
+        cur=head;
+        if(cur==NULL) {                 // If list is empty
+            cur=new node(x);
+            head=cur;
         }
         else {
-            while(ptr->next!=NULL) {    // If list has not empty
-                ptr=ptr->next;
+            while(cur->next!=NULL) {    // If list has not empty
+                cur=cur->next;
             }
-            ptr->next=new node(x);
+            cur->next=new node(x);
         }
     }
 
     void deleteBegin() {
-        ptr=head;
-        if(ptr==NULL) {
+        cur=head;
+        if(cur==NULL) {
             cout<<"List is already empty\n";
         }
         else {
-            ptr=head->next;
+            cur=head->next;
             delete head;
-            head=ptr;
+            head=cur;
         }
     }
 
     void deleteEnd() {
-        ptr=head;
-        if(ptr==NULL) {
+        cur=head;
+        if(cur==NULL) {
             cout<<"List is already empty\n";
         }
         // Case for single node
-        else if(ptr->next==NULL) {
-            ptr=head->next;
+        else if(cur->next==NULL) {
+            cur=head->next;
             delete head;
-            head=ptr;
+            head=cur;
         }
         // More than one node
         else {
-            while(ptr->next->next!=NULL) {
-                ptr=ptr->next;
+            while(cur->next->next!=NULL) {
+                cur=cur->next;
             }
-            delete ptr->next;
-            ptr->next=NULL;
+            delete cur->next;
+            cur->next=NULL;
         }
     }
 

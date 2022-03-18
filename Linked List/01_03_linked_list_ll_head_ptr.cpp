@@ -7,31 +7,31 @@ public:
     node *next;   
 };
 
-void printList(node *ptr) {
-    while(ptr!=NULL) {
-        cout<<ptr->data<<"->";
-        ptr=ptr->next;
+void printList(node *cur) {
+    while(cur!=NULL) {
+        cout<<cur->data<<"->";
+        cur=cur->next;
     }
-    if(ptr==NULL)
+    if(cur==NULL)
         cout<<"NULL\n";
 }
 
 int main() {
     node *head;
-    node *ptr;
-    ptr=new node;
-    head=ptr;
+    node *cur;
+    cur=new node;
+    head=cur;
 
-    ptr->data=10;
-    ptr->next=new node;
-    ptr=ptr->next;
+    cur->data=10;
+    cur->next=new node;
+    cur=cur->next;
 
-    ptr->data=20;
-    ptr->next=new node;
-    ptr=ptr->next;
+    cur->data=20;
+    cur->next=new node;
+    cur=cur->next;
 
-    ptr->data=30;
-    ptr->next=NULL;
+    cur->data=30;
+    cur->next=NULL;
 
     printList(head);
 

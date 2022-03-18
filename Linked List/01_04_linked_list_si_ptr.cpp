@@ -11,26 +11,26 @@ public:
     }   
 };
 
-void printList(node *ptr) {
-    while(ptr!=NULL) {
-        cout<<ptr->data<<"->";
-        ptr=ptr->next;
+void printList(node *cur) {
+    while(cur!=NULL) {
+        cout<<cur->data<<"->";
+        cur=cur->next;
     }
-    if(ptr==NULL)
+    if(cur==NULL)
         cout<<"NULL\n";
 }
 
 int main() {
     node *head;
-    node *ptr;
-    ptr=new node(10);
-    head=ptr;
+    node *cur;
+    cur=new node(10);
+    head=cur;
     
-    ptr->next=new node(20);
-    ptr=ptr->next;
+    cur->next=new node(20);
+    cur=cur->next;
 
-    ptr->next=new node(30);
-    ptr=ptr->next;
+    cur->next=new node(30);
+    cur=cur->next;
     
     printList(head);
     return 0;
