@@ -105,7 +105,6 @@ public:
         }
     }
 
-    // Debug this
     void sortedInsert(int x) {
         node *newNode=new node(x);
         if(head==NULL||head->data>=newNode->data) {
