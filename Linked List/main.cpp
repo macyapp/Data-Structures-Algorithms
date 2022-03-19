@@ -105,18 +105,34 @@ public:
         }
     }
 
+    void sortedInsert(int x) {
+        node *newNode=new node(x);
+        cur=head;
+        if(cur==NULL||head->data>=newNode->data) {
+            newNode->next=head;
+            head=newNode;
+        }
+        while(cur->next!=NULL && cur->next->data<newNode->data) {
+            cur=cur->next;
+        }
+        newNode->next=cur->next;
+        cur->next=newNode;
+    }
+
 };
 
 int main() {
     LinkedList ll;
+    ll.printList();
 
-    ll.insertEnd(10);
+    ll.sortedInsert(10);
     ll.printList();
-    ll.insertEnd(20);
+    ll.sortedInsert(20);
     ll.printList();
-    ll.insertEnd(30);
+    ll.sortedInsert(30);
     ll.printList();
-    ll.insertAt(6,15);
+    ll.sortedInsert(15);
     ll.printList();
+
     return 0;
 }
