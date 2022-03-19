@@ -142,6 +142,5 @@ int main() {
     ll.printList();
     ll.sortedInsert(15);
     ll.printList();
-    cout<<endl;
     return 0;
 }
