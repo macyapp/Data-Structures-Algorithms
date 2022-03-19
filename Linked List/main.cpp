@@ -105,6 +105,7 @@ public:
         }
     }
 
+    // Debug this
     void sortedInsert(int x) {
         node *newNode=new node(x);
         cur=head;
