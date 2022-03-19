@@ -15,6 +15,7 @@ class LinkedList {
 public:
     node *head;
     node *cur;
+
     void printList() {
         cur=head;
         while(cur!=NULL) {
@@ -24,7 +25,6 @@ public:
         if(cur==NULL)
             cout<<"NULL\n";
     }
-
     void insertBegin(int x) {
         cur=new node(x);
         cur->next=head;
@@ -111,14 +111,17 @@ public:
         if(head==NULL||head->data>=newNode->data) {
             newNode->next=head;
             head=newNode;
+            return;
         }
         cur=head;
-        while(cur->next!=NULL&&cur->next->data<newNode->data) {
+        while(cur->next&&cur->next->data<newNode->data) {
             cur=cur->next;
         }
         newNode->next=cur->next;
         cur->next=newNode;
     }
+    
+    
 };
 
 int main() {
@@ -139,6 +142,6 @@ int main() {
     ll.printList();
     ll.sortedInsert(15);
     ll.printList();
-
+    cout<<endl;
     return 0;
 }
