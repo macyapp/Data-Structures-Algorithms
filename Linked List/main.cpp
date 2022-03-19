@@ -108,18 +108,17 @@ public:
     // Debug this
     void sortedInsert(int x) {
         node *newNode=new node(x);
-        cur=head;
-        if(cur==NULL||head->data>=newNode->data) {
+        if(head==NULL||head->data>=newNode->data) {
             newNode->next=head;
             head=newNode;
         }
-        while(cur->next!=NULL && cur->next->data<newNode->data) {
+        cur=head;
+        while(cur->next!=NULL&&cur->next->data<newNode->data) {
             cur=cur->next;
         }
         newNode->next=cur->next;
         cur->next=newNode;
     }
-
 };
 
 int main() {
@@ -127,6 +126,12 @@ int main() {
     ll.printList();
 
     ll.sortedInsert(10);
+    ll.printList();
+    ll.sortedInsert(9);
+    ll.printList();
+    ll.sortedInsert(8);
+    ll.printList();
+    ll.sortedInsert(7);
     ll.printList();
     ll.sortedInsert(20);
     ll.printList();
