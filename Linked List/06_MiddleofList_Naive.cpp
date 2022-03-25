@@ -50,6 +50,7 @@ public:
         for(i=0;i<n/2;i++) {
             cur=cur->next;
         }
+        cout<<cur->data<<"\n";
     }
     
 };
@@ -61,5 +62,6 @@ int main() {
     ll.append(20);
     ll.append(30);
     ll.printList();
+    ll.middle();
     return 0;
 }
