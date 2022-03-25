@@ -13,7 +13,7 @@ public:
 
 class LinkedList {
 public:
-    node *head;
+    node *head=NULL;
     node *cur;
     void printList() {
         cur=head;

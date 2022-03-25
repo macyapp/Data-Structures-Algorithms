@@ -21,7 +21,7 @@ void printList(node *cur) {
 }
 
 int main() {
-    node *head;
+    node *head=NULL;
     node *cur;
     // Initializing list
     cur=new node(10);

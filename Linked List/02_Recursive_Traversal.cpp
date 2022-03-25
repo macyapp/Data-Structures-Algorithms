@@ -21,7 +21,7 @@ void printListRec(node *cur) {
 }
 
 int main() {
-    node *head;
+    node *head=NULL;
     node *cur;
     cur=new node(10);
     head=cur;
