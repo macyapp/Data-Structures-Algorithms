@@ -74,7 +74,7 @@ public:
 int main() {
     LinkedList ll;
     ll.printList();
-    ll.append(10);
+    // ll.append(10);
     // ll.append(20);
     // ll.append(30);
     ll.printList();
