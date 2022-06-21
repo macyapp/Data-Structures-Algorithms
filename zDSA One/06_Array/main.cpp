@@ -1,54 +1,40 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
+
+bool myCompare(pair<int,int> p1, pair<int,int> p2) {
+    return p1.first<p2.first;
+}
 
 int main() {
     freopen("input.txt","r",stdin);
-    vector<int> v;
-    
-    // Adding elements to vector
-    v.push_back(1);
-    v.push_back(2);
-    v.push_back(3);
+    // Reduce the given array
+    vector<int> a={10,16,7,14,5,3,12,9};
+    for(auto i:a) {
+        cout<<i<<" ";
+    }
+    cout<<"\n";
+    // Reduction
+    vector<pair<int,int>> v;
+    // for(int i=0;i<a.size();i++) {
+    //     pair<int,int> p;
+    //     p.first=a[i];
+    //     p.second=i;
+    //     v.push_back(p);
+    // }
 
-    // Printing vector
+    for(int i=0;i<a.size();i++) {
+        v.push_back(make_pair(a[i],i));
+    }
+
+    sort(v.begin(),v.end(),myCompare);
+
     for(int i=0;i<v.size();i++) {
-        cout<<v[i]<<" ";
+        a[v[i].second]=i;
     }
-    cout<<"\n";
 
-    vector<int>::iterator i;
-    for(i=v.begin();i!=v.end();i++) {
-        cout<<*i<<" ";
-    }
-    cout<<"\n";
-
-    for(auto i: v) {
-        cout<<i<<" ";
-    }
-    cout<<"\n";
-
-    // Deleting last element
-    v.pop_back();
-    for(auto i: v) {
-        cout<<i<<" ";
-    }
-    cout<<"\n\n";
-
-    // Second vector
-    vector<int> v2(3,50);
-    for(auto i: v2) {
-        cout<<i<<" ";
-    }
-    cout<<"\n\n";
-
-    // Swapping vectors
-    swap(v,v2);
-    for(auto i: v) {
-        cout<<i<<" ";
-    }
-    cout<<"\n";
-    for(auto i: v2) {
+    for(auto i:a) {
         cout<<i<<" ";
     }
     cout<<"\n";
