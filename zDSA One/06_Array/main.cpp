@@ -11,8 +11,12 @@ void initialize(vector<int>& a, int n) {
     }
 }
 
-void solve(vector<int>& a, int n) {
-
+void printArray(vector<int>& a,int x,int y) {
+    int i;
+    for(i=x;i<y;i++) {
+        cout<<a[i]<<" ";
+    }
+    cout<<"\n";
 }
 
 int main() {
@@ -21,6 +25,6 @@ int main() {
     cin>>n;
     vector<int> a;
     initialize(a,n);
-    solve(a,n);
+    printArray(a,0,n);
     return 0;
 }

@@ -4,9 +4,8 @@
 using namespace std;
 
 void initialize(vector<int>& a, int n) {
-    int i;
+    int i,temp;
     for(i=0;i<n;i++) {
-        int temp;
         cin>>temp;
         a.push_back(temp);
     }
