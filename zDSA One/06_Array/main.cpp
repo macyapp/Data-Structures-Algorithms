@@ -6,6 +6,7 @@ using namespace std;
 void initialize(vector<int>& a,int n) {
     int i,input;
     for(i=0;i<n;i++) {
+        cin>>input;
         a.push_back(input);
     }
 }
