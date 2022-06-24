@@ -22,9 +22,9 @@ void print(vector<int> a,int x,int y) {
 
 void solve(vector<int>& a, int n) {
     int i,j,x,y;
-    int cur=0,max=a[0];
+    int cur=a[0],max=a[0];
     for(i=0;i<n;i++) {
-        if(cur<0) {
+        if(cur<=a[i]) {
             cur=a[i];
             x=i;
         }
