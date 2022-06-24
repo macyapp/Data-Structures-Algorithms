@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include <climits>
 using namespace std;
 
 void initialize(vector<int>& a,int n) {
@@ -21,21 +22,23 @@ void print(vector<int> a,int x,int y) {
 
 void solve(vector<int>& a, int n) {
     int i,j,x,y;
-    int cur,max=a[0];
+    int cur=0,max=a[0];
     for(i=0;i<n;i++) {
-        cur=0;
-        for(j=i;j<n;j++) {
-            cur+=a[j];
-            if(cur>max) {
-                max=cur;
-                x=i;
-                y=j;
-            }
+        if(cur<0) {
+            cur=a[i];
+            x=i;
+        }
+        else {
+            cur+=a[i];
+        }
+        if(cur>max) {
+            max=cur;
+            y=i+1;
         }
     }
     cout<<"Max Subarray Sum = "<<max<<"\n";
     cout<<"Subarray:\n";
-    print(a,x,y+1);
+    print(a,x,y);
 }
 
 int main() {
