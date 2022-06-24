@@ -3,10 +3,11 @@
 #include<algorithm>
 using namespace std;
 
-void initialize(vector<int>& a) {
+void initialize(vector<int>& a,int n) {
     int i,input;
-    while(cin>>input)
+    for(i=0;i<n;i++) {
         a.push_back(input);
+    }
 }
 
 void print(vector<int> a,int x,int y) {
@@ -25,9 +26,9 @@ void solve(vector<int>& a, int n) {
 int main() {
     freopen("ip.txt","r",stdin);
     int n;
+    cin>>n;
     vector<int> a;
-    initialize(a);
-    n=a.size();
+    initialize(a,n);
     // solve(a,n);
     print(a,0,n);
     return 0;
