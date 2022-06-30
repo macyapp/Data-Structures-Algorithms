@@ -21,8 +21,13 @@ void print(vector<int> a,int x,int y) {
 }
 
 void solve(vector<int>& a, int n) {
-    int i,min,water=0;
-    cout<<"Total Trapped = "<<water<<"\n";
+    int i,maxProfit=0;
+    for(i=1;i<n;i++) {
+        if(a[i]>a[i-1]) {
+            maxProfit+=a[i]-a[i-1];
+        }
+    }
+    cout<<"Max profit="<<maxProfit<<"\n";
 }
 
 int main() {
