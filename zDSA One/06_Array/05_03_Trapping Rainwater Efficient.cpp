@@ -22,6 +22,28 @@ void print(vector<int> a,int x,int y) {
 
 void solve(vector<int>& a, int n) {
     int i,min,water=0;
+    int l=0,r=n-1;
+    int l_max=0,r_max=0;
+    while(l<r) {
+        if(a[l]<a[r]) {
+            if(a[l]>=l_max) {
+                l_max=a[l];
+            }
+            else {
+                water+=l_max-a[l];
+            }
+            l++;
+        }
+        else {
+            if(a[r]>=r_max) {
+                r_max=a[r];
+            }
+            else {
+                water+=r_max-a[r];
+            }
+            r--;
+        }
+    }
     cout<<"Total Trapped = "<<water<<"\n";
 }
 
