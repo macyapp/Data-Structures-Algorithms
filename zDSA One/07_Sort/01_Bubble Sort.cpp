@@ -19,13 +19,13 @@ void print(vector<int> a,int n) {
 }
 
 void solve(vector<int>& a, int n) {
-    int i,j,min;
+    int i,j;
     for(i=0;i<n-1;i++) {
-        min=i;              // Assuming current element is the min
-        for(j=i+1;j<n;j++) {
-            min=(a[j]<a[min])?j:min;
+        for(j=0;j<n-1-i;j++) {      // Since Largest element is always sorted in a single pass
+            if(a[j]>a[j+1]) {
+                swap(a[j],a[j+1]);
+            }
         }
-        swap(a[i],a[min]);
     }
 }
 
