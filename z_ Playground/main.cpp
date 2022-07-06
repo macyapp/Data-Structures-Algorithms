@@ -1,26 +1,33 @@
 #include<iostream>
-#include<algorithm>
-typedef long long ll;
 using namespace std;
 
 void solve(int n) {
-    ll b,c;
-    if(n&1) {
-        cout<<"-1\n";
+    string s;
+    cin>>s;
+    int i,count=0;
+    for(i=0;i<n;i++) {
+        if((s[i]-'0')==1)
+            count++;
+    }
+    if(count==n) {
+        cout<<0<<"\n";
     }
     else {
-        n>>=1;
-        b=1;
-        c= n^b;
-        cout<<b<<" "<<b<<" "<<c<<"\n";
+        if(s[n-1]-'0'==0) {
+            cout<<count<<"\n";
+        }
+        else {
+            cout<<count-1<<"\n";
+        }
     }
 }
 
 int main() {
+    #ifndef ONLINE_JUDGE
     freopen("ip.txt","r",stdin);
-    int t;
+    #endif
+    int t,n;
     cin>>t;
-    ll n;
     while(t--) {
         cin>>n;
         solve(n);
