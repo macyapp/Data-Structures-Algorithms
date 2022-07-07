@@ -18,37 +18,37 @@ void print(vector<int> a,int n) {
     cout<<"\n";
 }
 
-void merge(vector<int>& a,int start,int mid,int end) {
-    int i,j,p,q;
+void merge(vector<int>& a, int start,int mid,int end) {
+    int i,k,p,q;
     vector<int> temp(end-start+1,0);
-    j=0, p=start, q=mid+1;
-    for(i=0;i<=end;i++) {
-        if(p>mid) {                     // checks if first part comes to an end or not    
-            temp[j++]=a[q++];
+    k=0,p=start,q=mid+1;
+    for(i=start;i<=end;i++) {
+        if(p>mid) {                 // checks if first part comes to an end or not
+            temp[k++]=a[q]++;
         }
-        else if(q>end) {                // checks if second part has come to an end or not
-            temp[j++]=a[p++];
+        else if(q>end) {            // checks if second part has come to an end or not
+            temp[k++]=a[p++];
         }
-        else if(a[p]<a[q]) {            // checks which part has smaller element
-            temp[j++]=a[p++];
+        else if(a[p]<a[q]) {        // checks which part has smaller element
+            temp[k++]=a[p++];
         }
         else {
-            temp[j++]=a[q++];
+            temp[k++]=a[q++];
         }
     }
     // Copying sorted temp array into actual array
-    for(i=0;i<j;i++) {
-        a[start++]=temp[i];
+    for(i=0;i<k;i++,start++) {
+        a[start]=temp[i];
     }
 }
 
-void mergeSort(vector<int>& a,int start,int end) {
+void mergeSort(vector<int>& a, int start,int end) {
     int mid;
     if(start<end) {
-        mid=(start+end)/2;          // defines the current array in 2 parts
-        mergeSort(a,start,mid);     // sort 1st part of array
-        mergeSort(a,mid+1,end);     // sort 2nd part of array
-        merge(a,start,mid,end);     // merge both parts by comparing elements of both parts
+        mid=(start+end)/2;
+        mergeSort(a,start,mid);
+        mergeSort(a,mid+1,end);
+        merge(a,start,mid,end);
     }
 }
 
