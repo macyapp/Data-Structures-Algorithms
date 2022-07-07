@@ -1,36 +1,32 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
-void solve(int n) {
-    string s;
-    cin>>s;
-    int i,count=0;
+void initialize(vector<int>& a,int n) {
+    int i,input;
     for(i=0;i<n;i++) {
-        if((s[i]-'0')==1)
-            count++;
-    }
-    if(count==n) {
-        cout<<0<<"\n";
-    }
-    else {
-        if(s[n-1]-'0'==0) {
-            cout<<count<<"\n";
-        }
-        else {
-            cout<<count-1<<"\n";
-        }
+        cin>>input;
+        a.push_back(input);
     }
 }
 
-int main() {
-    #ifndef ONLINE_JUDGE
-    freopen("ip.txt","r",stdin);
-    #endif
-    int t,n;
-    cin>>t;
-    while(t--) {
-        cin>>n;
-        solve(n);
+void print(vector<int> a,int n) {
+    int i;
+    for(i=0;i<n;i++) {
+        cout<<a[i]<<" ";
     }
+    cout<<"\n";
+}
+
+void solve(vector<int>& a, int n) {
+}
+
+int main() {
+    freopen("ip.txt","r",stdin);
+    int n;
+    cin>>n;
+    vector<int> a;
+    initialize(a,n);
+    solve(a,n);
     return 0;
 }

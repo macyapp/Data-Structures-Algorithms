@@ -18,18 +18,35 @@ void print(vector<int> a,int n) {
     cout<<"\n";
 }
 
-void solve(vector<int>& a, int n) {
-    
+void solve(vector<int>& a,vector<int>& b,int m,int n) {
+    int i=0,j=0;
+    while(i<m || j<n) {
+        if(i>=m) {
+            cout<<b[j++]<<" ";
+        }
+        else if(j>=n) {
+            cout<<a[i++]<<" ";
+        }
+        else if(a[i]<b[j]) {
+            cout<<a[i++]<<" ";
+        }
+        else {
+            cout<<b[j++]<<" ";
+        }
+    }
 }
 
 int main() {
     freopen("ip.txt","r",stdin);
-    int n;
-    cin>>n;
+    int m,n;
     vector<int> a;
-    initialize(a,n);
-    print(a,n);
-    solve(a,n);
-    print(a,n);
+    vector<int> b;
+    cin>>m;
+    initialize(a,m);
+    print(a,m);
+    cin>>n;
+    initialize(b,n);
+    print(b,n);
+    solve(a,b,m,n);
     return 0;
 }
