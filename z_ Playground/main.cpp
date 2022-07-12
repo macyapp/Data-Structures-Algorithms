@@ -19,6 +19,14 @@ void print(vector<int> a,int n) {
 }
 
 void solve(vector<int>& a, int n) {
+    int i,j=0;
+    for(i=1;i<n;i++) {
+        if(a[i]!=a[j]) {
+            j++;
+            a[j]=a[i];
+        }
+    }
+    print(a,j+1);
 }
 
 int main() {
