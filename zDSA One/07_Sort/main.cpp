@@ -10,8 +10,8 @@ void initialize(vector<int>& a,int n) {
     }
 }
 
-void print(vector<int> a,int n) {
-    int i;
+void print(vector<int> a) {
+    int i,n=a.size();
     for(i=0;i<n;i++) {
         cout<<a[i]<<" ";
     }
@@ -19,16 +19,18 @@ void print(vector<int> a,int n) {
 }
 
 int partition(vector<int>& a,int start,int end) {
-    int i=start+1,j;
-    int piv=a[start];
-    for(j=start+1;j<=end;j++) {
-        if(a[j]<piv) {
-            swap(a[i],a[j]);
-            i++;
+    int pivot=a[end];
+    int pIndex=start;
+    int i;
+    for(i=start;i<end;i++) {
+        if(a[i]<=pivot) {
+            print(a);
+            swap(a[i],a[pIndex]);
+            pIndex++;
         }
     }
-    swap(a[start],a[i-1]);
-    return i-1;
+    swap(a[pIndex],a[end]);
+    return pIndex;
 }
 
 void quickSort(vector<int>& a,int start,int end) {
@@ -52,8 +54,8 @@ int main() {
     vector<int> a;
     cin>>n;
     initialize(a,n);
-    print(a,n);
+    print(a);
     solve(a,n);
-    print(a,n);
+    print(a);
     return 0;
 }
