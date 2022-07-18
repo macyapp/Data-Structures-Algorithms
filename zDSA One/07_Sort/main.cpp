@@ -18,35 +18,42 @@ void print(vector<int> a,int n) {
     cout<<"\n";
 }
 
-void solve(vector<int>& a,vector<int>& b,int m,int n) {
-    int i=0,j=0;
-    while(i<m || j<n) {
-        if(i>=m) {
-            cout<<b[j++]<<" ";
+int partition(vector<int>& a,int start,int end) {
+    int i=start+1,j;
+    int piv=a[start];
+    for(j=start+1;j<=end;j++) {
+        if(a[j]<piv) {
+            swap(a[i],a[j]);
+            i++;
         }
-        else if(j>=n) {
-            cout<<a[i++]<<" ";
-        }
-        else if(a[i]<b[j]) {
-            cout<<a[i++]<<" ";
-        }
-        else {
-            cout<<b[j++]<<" ";
-        }
+    }
+    swap(a[start],a[i-1]);
+    return i-1;
+}
+
+void quickSort(vector<int>& a,int start,int end) {
+    int pivot;
+    if(start<end) {
+        pivot=partition(a,start,end);
+        quickSort(a,start,pivot-1);
+        quickSort(a,pivot+1,end);
     }
 }
 
+void solve(vector<int>& a,int n) {
+    quickSort(a,0,n-1);
+}
+
 int main() {
+    #ifndef ONLINE_JUDGE
     freopen("ip.txt","r",stdin);
-    int m,n;
+    #endif
+    int n;
     vector<int> a;
-    vector<int> b;
-    cin>>m;
-    initialize(a,m);
-    print(a,m);
     cin>>n;
-    initialize(b,n);
-    print(b,n);
-    solve(a,b,m,n);
+    initialize(a,n);
+    print(a,n);
+    solve(a,n);
+    print(a,n);
     return 0;
 }

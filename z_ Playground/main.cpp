@@ -1,40 +1,39 @@
 #include<iostream>
-#include<vector>
+#include<string>
 using namespace std;
 
-void initialize(vector<int>& a,int n) {
-    int i,input;
-    for(i=0;i<n;i++) {
-        cin>>input;
-        a.push_back(input);
-    }
+bool palindrome(string &s,int l,int r) {
+    if(l>=r)
+        return true;
+    return ((s[l]==s[r]) && palindrome(s,l+1,r-1));
 }
 
-void print(vector<int> a,int n) {
+void solve(int n,string &s) {
     int i;
+    bool flag=false;
     for(i=0;i<n;i++) {
-        cout<<a[i]<<" ";
-    }
-    cout<<"\n";
-}
-
-void solve(vector<int>& a, int n) {
-    int i,j=0;
-    for(i=1;i<n;i++) {
-        if(a[i]!=a[j]) {
-            j++;
-            a[j]=a[i];
+        if(palindrome(s,0,n-1)) {
+            flag=true;
+            break;
         }
+        swap(s[i],s[i+2]);
     }
-    print(a,j+1);
+    if(flag&&(!(n&1)))
+        cout<<"YES\n";
+    else
+        cout<<"NO\n";
 }
 
 int main() {
+    #ifndef ONLINE_JUDGE
     freopen("ip.txt","r",stdin);
-    int n;
-    cin>>n;
-    vector<int> a;
-    initialize(a,n);
-    solve(a,n);
+    #endif
+    int t,n;
+    string s;
+    cin>>t;
+    while(t--) {
+        cin>>n>>s;
+        solve(n,s);
+    }
     return 0;
 }
