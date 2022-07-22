@@ -19,18 +19,18 @@ void print(vector<int> a) {
 }
 
 int partition(vector<int>& a,int start,int end) {
-    int pivot=a[end];
-    int pIndex=start;
+    int pivot=a[end];       // Pick the rightmost element as a pivot from the array
+    int pidx=start;
     int i;
     for(i=start;i<end;i++) {
         if(a[i]<=pivot) {
-            print(a);
-            swap(a[i],a[pIndex]);
-            pIndex++;
+            swap(a[i],a[pidx]);
+            pidx++;
         }
     }
-    swap(a[pIndex],a[end]);
-    return pIndex;
+    print(a);
+    swap(a[pidx],a[end]);
+    return pidx;
 }
 
 void quickSort(vector<int>& a,int start,int end) {
