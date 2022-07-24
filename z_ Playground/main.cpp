@@ -2,7 +2,20 @@
 using namespace std;
 
 void solve(int x,int y,int n,int r) {
-    int total;
+    int a,b,a_max,b_max;
+    bool flag=true;
+    for(b=0,a=n;b<=n;b++,a--) {
+        if(a*x+b*y==r) {
+            a_max=a;
+            b_max=b;
+        }
+    }
+    if(a_max>=0 && a_max<=n && b_max>=0 && b_max<=n) {
+        cout<<a_max<<" "<<b_max<<"\n";
+    }
+    else {
+        cout<<"-1\n";
+    }
 }
 
 int main() {
