@@ -4,7 +4,8 @@ import java.util.StringTokenizer;
 class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br=new BufferedReader(new FileReader("ip.txt"));
-        StringTokenizer st=new StringTokenizer(br.readLine());
+        StringTokenizer st;
+        st=new StringTokenizer(br.readLine());
         int n=Integer.parseInt(st.nextToken());
         int[] a=new int[n];
         st=new StringTokenizer(br.readLine());
