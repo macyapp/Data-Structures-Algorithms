@@ -1,42 +1,40 @@
 #include<iostream>
-#include<vector>
-#include<string>
+#include<list>
+#include<iterator>
 using namespace std;
 #define endl "\n"
 #define pb push_back
 
-vector<string> hashTable[20];
-int hashTableSize=20;
+class Hash {
+public:
+    int BUCKET;
+    list<int> *table;
 
-int hashFunc(string s) {
-    
-}
-
-void insert(string s) {
-    int idx=hashFunc(s);
-    hashTable[idx].pb(s);
-}
-
-void search(string s) {
-    int idx=hashFunc(s);
-    int i;
-    for(i=0;i<hashTable[idx].size();i++) {
-        if(hashTable[idx][i]==s) {
-            cout<<s<<" is found!"<<endl;
-            return;
-        }
+    Hash(int b) {
+        this->BUCKET=b;
+        table=new list<int>[BUCKET];
     }
-    cout<<s<<" is not found!"<<endl;
-}
+
+    int hashFunc(int x) {
+        return (x%BUCKET);
+    }
+
+    void insert(int key) {
+        int idx=hashFunc(key);
+        table[idx].pb(key);
+    }
+
+    void deleteEl(int key) {
+        int idx=hashFunc(key);
+        
+    }
+};
 
 void solve() {
 
 }
 
 int main() {
-    #ifndef ONLINE_JUDGE
-        freopen("ip.txt","r",stdin);
-    #endif
     solve();
     return 0;
 }
