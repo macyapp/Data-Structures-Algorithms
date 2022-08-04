@@ -24,9 +24,23 @@ public:
         table[idx].pb(key);
     }
 
-    void deleteEl(int key) {
-        int idx=hashFunc(key);
-        
+    // void deleteEl(int key) {
+    //     int idx=hashFunc(key);
+    //     list<int> :: iterator i;
+    //     for(i=table[];;i++) {
+
+    //     }
+    // }
+
+    void displayHash() {
+        int i;
+        for(i=0;i<BUCKET;i++) {
+            cout<<i;
+            for(auto x: table[i]) {
+                cout<<"->"<<x;
+            }
+            cout<<endl;
+        }
     }
 };
 

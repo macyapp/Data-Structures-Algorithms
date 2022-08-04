@@ -1,23 +1,15 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 #define endl "\n"
-#define all(X) (X).begin(), (X).end()
-typedef long long ll;
 
 void solve() {
-    int n;
-    cin >> n;
-    string s;
-    int dig=9;
-    while(n) {
-        while(n<dig)
-            dig--;
-        s+=char('0'+dig);
-        n-=dig;
-        dig--;
+    int n,x,y,a,b;
+    float total=0;
+    cin>>n>>x>>y>>a>>b;
+    if(x<y) {
+        int diesel;
+        diesel=n/x;
     }
-    reverse(all(s));
-    cout<<s<<endl;
 }
 
 int main() {
