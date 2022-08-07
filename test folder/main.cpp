@@ -1,42 +1,24 @@
-// { Driver Code Starts
-#include<bits/stdc++.h> 
+#include<iostream>
+#include<unordered_set>
 using namespace std;
+#define endl "\n"
+#define sop cout<<"\n"
 
- // } Driver Code Ends
-class Solution {
-public:
-    int isLeap(int n) {
-        //code here
-        if(n%4==0) {
-            if(n%100==0) {
-                if(n%400==0) {
-                    return 1;
-                }
-                else {
-                    return 0;
-                }
-            }
-            else {
-                return 1;
-            }
-        }
-        else {
-            return 0;
-        }
-    }
-};
-
-// { Driver Code Starts.
 int main() {
-    freopen("ip.txt","r",stdin);
-    int t;
-    cin>>t;
-    while(t--)
-    {
-        int N;
-        cin>>N;
-        Solution ob;
-        cout << ob.isLeap(N) << endl;
+    unordered_set<int> s;
+    s.insert(5);
+    s.insert(10);
+    if(s.find(5)==s.end()) {
+        cout<<"Not found"<<endl;
     }
-    return 0; 
-}  // } Driver Code Ends
+    else {
+        cout<<"Found"<<endl;
+    }
+    for(auto i=s.begin();i!=s.end();i++) {
+        cout<<*i<<" ";
+    }
+    sop;
+    s.clear();
+    cout<<s.size()<<endl;
+    return 0;
+}
