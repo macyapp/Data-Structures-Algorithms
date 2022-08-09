@@ -1,51 +1,50 @@
 // { Driver Code Starts
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 
  // } Driver Code Ends
 class Solution{
-  public:
-    //Function to fill the array elements into a hash table 
-    //using Quadratic Probing to handle collisions.
-    void QuadraticProbing(vector <int>&hash, int hashSize, int arr[], int N) {
-        //Your code here
-        
+    public:
+    // Function to search x in arr
+    // arr: input array
+    // X: element to be searched for
+    int search(int a[], int n, int x) {
+		// Your code here
+		int i,idx=-1;
+		for(i=0;i<n;i++) {
+			if(a[i]==x) {
+				idx=i;
+			}
+		}
+		return idx;
     }
-
 
 };
 
 // { Driver Code Starts.
 
 int main() {
-	int t;
-	cin>>t;
-	while(t--)
-	{
-	    int hashSize;
-	    cin>>hashSize;
-	    
-	    
-	    int  N;
-	    cin>>N;
-	    int arr[N];
-	    
-	    for(int i=0;i<N;i++)
-	    cin>>arr[i];
-	    
-	    vector<int> hash (hashSize,-1);
-	    Solution obj;
-	    obj.QuadraticProbing (hash, hashSize, arr, N);
-	    
-	    for(int i = 0;i < hashSize; i++)
-	    cout<<hash[i]<<" ";
-	    
-	    cout<<endl;
-	    
-	}
-	return 0;
+	freopen("ip.txt","r",stdin);
+    int testcases;
+    cin>>testcases;
+    while(testcases--)
+    {
+        int sizeOfArray;
+        cin>>sizeOfArray;
+        int arr[sizeOfArray];
+        int x;
+        
+        for(int i=0;i<sizeOfArray;i++)
+        {
+            cin>>arr[i];
+        }
+        cin>>x;
+        Solution ob;
+        cout<<ob.search(arr,sizeOfArray,x)<<endl; //Linear search
+    }
+
+    return 0;
+    
 }
-
-
   // } Driver Code Ends
