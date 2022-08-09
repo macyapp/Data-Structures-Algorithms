@@ -53,7 +53,7 @@ int main() {
     }
     cout<<"Initial Hash\n";
     ob.displayHash();
-    cout<<"\nRemoving 23 from Hash:";
+    cout<<"\nRemoving 23 from Hash: ";
     ob.del(23);
     cout<<endl;
 
