@@ -6,6 +6,8 @@ using namespace std;
 
 void solve() {
     int n;
+    bool flag=true;
+    int tmp;
 }
 
 int main() {
