@@ -16,7 +16,7 @@ public:
     }
     void insert(int x) {
         int idx=hashFunc(x);
-        int h;
+        int h=1;
         while(v[idx]!=0) {
             idx=(idx+h*h)%n;
             h++;
