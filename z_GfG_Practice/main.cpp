@@ -1,63 +1,38 @@
-#include<iostream>
-#include<vector>
+// { Driver Code Starts
+#include <bits/stdc++.h>
 using namespace std;
-#define endl "\n"
 
-class Hash {
-    int n;
-    vector<vector<int>> v;
-public:
-    Hash(int n) {
-        v=vector<vector<int>>(n);
-        this->n=n;
-    }
-    int hashFunc(int x) {
-        return x%n;
-    }
-    void add(int x) {
-        int idx=hashFunc(x);
-        v[idx].push_back(x);
-    }
-    void del(int x) {
-        int idx=hashFunc(x);
-        int i,j;
-        for(i=0;i<v[idx].size();i++) {
-            if(v[idx][i]==x) {
-                v[idx].erase(v[idx].begin()+i);
-                cout<<x<<" deleted!"<<endl;
-                return;
-            }
-        }
-        cout<<"No Element Found!"<<endl;
-    }
-    void displayHash() {
-        int i,j;
-        for(i=0;i<v.size();i++) {
-            cout<<i;
-            for(j=0;j<v[i].size();j++) {
-                cout<<" -> "<<v[i][j];
-            }
-            cout<<endl;
-        }
+ // } Driver Code Ends
+class Solution{
+    public:
+    // Function to count number of Ones
+    // arr: input array 
+    // N: size of input array
+    int countOnes(int arr[], int N)
+    {
+        
+        // Your code here
+        
     }
 };
 
-int main() {
-    freopen("ip.txt","r",stdin);
-    int i,tmp,n;
-    cin>>n;
-    Hash ob(n);
-    for(i=0;i<n;i++) {
-        cin>>tmp;
-        ob.add(tmp);
-    }
-    cout<<"Initial Hash\n";
-    ob.displayHash();
-    cout<<"\nRemoving 23 from Hash:";
-    ob.del(23);
-    cout<<endl;
+// { Driver Code Starts.
 
-    cout<<"Final Hash:\n";
-    ob.displayHash();
+int main()
+{
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int *arr = new int[n]; 
+        for(int i = 0; i < n; i++)
+            cin>>arr[i];
+            
+        Solution ob;
+        cout <<ob.countOnes(arr, n)<<endl;
+    }
     return 0;
-}
+}  // } Driver Code Ends
