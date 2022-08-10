@@ -16,15 +16,19 @@ public:
     }
     void insert(int x) {
         int idx=hashFunc(x);
+        int h;
         while(v[idx]!=0) {
-            idx=(idx+1)%n;
+            idx=(idx+h*h)%n;
+            h++;
         }
         v[idx]=x;
     }
     void search(int x) {
         int idx=hashFunc(x);
+        int h=1;
         while(v[idx]!=x && v[idx]!=0) {
-            idx=(idx+1)%n;
+            idx=(idx+h*h)%n;
+            h++;
         }
         if(v[idx]==x) {
             cout<<x<<" is found!"<<endl;
