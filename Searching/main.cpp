@@ -4,6 +4,7 @@ using namespace std;
 #define endl "\n"
 
 void initialize(vector<int>& a) {
+    
 }
 
 int binarySearch(vector<int>& a) {
