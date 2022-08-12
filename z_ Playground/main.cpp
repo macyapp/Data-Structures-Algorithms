@@ -1,54 +1,32 @@
 #include<iostream>
-#include<list>
-#include<iterator>
+#include<vector>
 using namespace std;
 #define endl "\n"
-#define pb push_back
+typedef long long ll;
 
-class Hash {
-public:
-    int BUCKET;
-    list<int> *table;
-
-    Hash(int b) {
-        this->BUCKET=b;
-        table=new list<int>[BUCKET];
+void initialize(vector<int>& a,int n) {
+    int i;
+    for(i=0;i<n;i++) {
+        cin>>a[i];
     }
-
-    int hashFunc(int x) {
-        return (x%BUCKET);
-    }
-
-    void insert(int key) {
-        int idx=hashFunc(key);
-        table[idx].pb(key);
-    }
-
-    // void deleteEl(int key) {
-    //     int idx=hashFunc(key);
-    //     list<int> :: iterator i;
-    //     for(i=table[];;i++) {
-
-    //     }
-    // }
-
-    void displayHash() {
-        int i;
-        for(i=0;i<BUCKET;i++) {
-            cout<<i;
-            for(auto x: table[i]) {
-                cout<<"->"<<x;
-            }
-            cout<<endl;
-        }
-    }
-};
+}
 
 void solve() {
+    int n;
+    cin>>n;
+    vector<int> a(n-1);
+    initialize(a,n-1);
 
 }
 
 int main() {
-    solve();
+#ifndef ONLINE_JUDGE
+freopen("ip.txt","r",stdin);
+#endif
+    int t;
+    cin>>t;
+    while(t--) {
+        solve();
+    }
     return 0;
 }
