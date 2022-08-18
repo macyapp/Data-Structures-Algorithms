@@ -24,7 +24,7 @@ void merge(vector<int>& a, int start,int mid,int end) {
     k=0,p=start,q=mid+1;
     for(i=start;i<=end;i++) {
         if(p>mid) {                 // checks if first part comes to an end or not
-            temp[k++]=a[q]++;
+            temp[k++]=a[q++];
         }
         else if(q>end) {            // checks if second part has come to an end or not
             temp[k++]=a[p++];
