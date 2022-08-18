@@ -19,7 +19,7 @@ void print(vi& a,int n) {
     cout<<"\n";
 }
 
-vi solve(vi& a,vi& b,int m,int n) {
+vi solve(vi& a,vi& b,int m,int n) { // Function to merge two sorted array
     int size=m+n;
     vi c(size);
     int i,j,k;
