@@ -1,9 +1,8 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-#define vi vector<int>
 
-void initialize(vi& a,int n) {
+void initialize(vector<int>& a,int n) {
     int i,input;
     for(i=0;i<n;i++) {
         cin>>input;
@@ -11,7 +10,7 @@ void initialize(vi& a,int n) {
     }
 }
 
-void print(vi& a,int n) {
+void print(vector<int>& a,int n) {
     int i;
     for(i=0;i<n;i++) {
         cout<<a[i]<<" ";
@@ -19,39 +18,25 @@ void print(vi& a,int n) {
     cout<<"\n";
 }
 
-vi solve(vi& a,vi& b,int m,int n) {
-    int size=m+n;
-    vi c(size);
-    int i,j,k;
-    i=j=k=0;
-    while(i<m || j<n) {
-        if(i>=m) {
-            c[k++]=b[j++];
+void solve(vector<int>& a,int n) {
+    int i,j;
+    int tmp;
+    for(i=0;i<n;i++) {
+        tmp=a[i];
+        for(j=i ; j>0 && a[j-1]>tmp ;j--) {
+            a[j]=a[j-1];
         }
-        else if(j>=n) {
-            c[k++]=a[i++];
-        }
-        else if(a[i]<b[j]) {
-            c[k++]=a[i++];
-        }
-        else {
-            c[k++]=b[j++];
-        }
+        a[j]=tmp;
     }
-    return c;
 }
 
 int main() {
-    int m,n;
-    cin>>m>>n;
-    vi a;
-    vi b;
-    vi c;
-    initialize(a,m);
-    initialize(b,n);
-    print(a,m);
-    print(b,n);
-    c=solve(a,b,m,n);
-    print(c,m+n);
+    int n;
+    cin>>n;
+    vector<int> a;
+    initialize(a,n);
+    print(a,n);
+    solve(a,n);
+    print(a,n);
     return 0;
 }

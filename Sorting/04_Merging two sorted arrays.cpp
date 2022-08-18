@@ -31,7 +31,7 @@ vi solve(vi& a,vi& b,int m,int n) {
         else if(j>=n) {
             c[k++]=a[i++];
         }
-        else if(a[i]<b[j]) {
+        else if(a[i]<=b[j]) {
             c[k++]=a[i++];
         }
         else {
