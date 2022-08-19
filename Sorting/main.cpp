@@ -1,68 +1,58 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-#define vi vector<int>
+#define endl "\n"
+#define v vector
 
-void initialize(vi& a,int n) {
-    int i,input;
+void initialize(v<int>& a,int n) {
+    int i;
     for(i=0;i<n;i++) {
-        cin>>input;
-        a.push_back(input);
+        cin>>a[i];
     }
 }
 
-void print(vi& a,int n) {
+void print(v<int>& a,int n) {
     int i;
     for(i=0;i<n;i++) {
         cout<<a[i]<<" ";
     }
-    cout<<"\n";
+    cout<<endl;
 }
 
-void merge(vi& a,int low,int mid,int high) {
-    vi tmp(high-low+1);         // Temp array
-    int i,j,k;
-    i=low,j=mid+1,k=0;
-    while(i<=mid || j<=high) {
-        if(i>mid) {
-            tmp[k++]=a[j++];
-        }
-        else if(j>high) {
-            tmp[k++]=a[i++];
-        }
-        else if(a[i]<=a[j]) {   // "<=" is used to keep it stable
-            tmp[k++]=a[i++];
-        }
-        else {
-            tmp[k++]=a[j++];
+int solve(v<int>& a,int low,int high,int piv) {
+    v<int> tmp(high-low+1);
+    int pividx;
+    int i,idx=0;
+    for(i=low;i<=high;i++) {    // Smaller than pivot element
+        if(a[i]<a[piv]) {
+            tmp[idx++]=a[i];
         }
     }
-    for(i=0;i<k;) {
+    for(i=low;i<=high;i++) {    // Equal to pivot element
+        if(a[i]==a[piv]) {
+            tmp[idx++]=a[i];
+        }
+    }
+    pividx=low+idx-1;
+    for(i=low;i<=high;i++) {    // Equal to pivot element
+        if(a[i]>a[piv]) {
+            tmp[idx++]=a[i];
+        }
+    }
+    for(i=0;i<idx;) {           // Equal to pivot element
         a[low++]=tmp[i++];
     }
-}
-
-void mergeSort(vi& a,int low,int high) {
-    int mid;
-    if(low<high) {
-        mid=(low+high)/2;
-        mergeSort(a,low,mid);
-        mergeSort(a,mid+1,high);
-        merge(a,low,mid,high);
-    }
-}
-
-void solve(vi& a,int n) {
-    mergeSort(a,0,n-1);
+    return pividx;
 }
 
 int main() {
-    int n;
-    cin>>n;
-    vi a;
+    int n,p,idx;
+    cin>>n>>p;
+    v<int> a(n);
     initialize(a,n);
     print(a,n);
-    solve(a,n);
+    idx=solve(a,0,n-1,p);
     print(a,n);
+    cout<<idx<<endl;
     return 0;
 }
