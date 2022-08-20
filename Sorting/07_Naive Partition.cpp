@@ -33,7 +33,7 @@ int solve(v<int>& a,int low,int high,int piv) {
             tmp[idx++]=a[i];
         }
     }
-    pividx=low+idx-1;
+    pividx=low+idx-1;           // Last index of pivot element
     for(i=low;i<=high;i++) {    // Equal to pivot element
         if(a[i]>a[piv]) {
             tmp[idx++]=a[i];

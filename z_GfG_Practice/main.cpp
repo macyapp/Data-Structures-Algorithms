@@ -1,62 +1,60 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
+// C program for insertion sort
+#include <stdio.h>
+#include <math.h>
+
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
 
 
 // } Driver Code Ends
-//User function Template for C++
-
 class Solution {
-  public:
-    int makeProductOne(int a[], int n) {
-        // code here
+    public:
+    void insert(int a[], int i) {
+		//code here
+		int j=i,tmp;
+		tmp=a[i];
+		while(j>0 && a[j-1]>tmp) {
+			a[j]=a[j-1];
+			j--;
+		}
+		a[j]=tmp;
+    }
+    //Function to sort the array using insertion sort algorithm.
+    void insertionSort(int a[], int n) {
+		//code here
 		int i;
-		int pos,neg,zer,step;
-		pos=neg=zer=step=0;
 		for(i=0;i<n;i++) {
-			if(a[i]==0) {
-				zer++;
-			}
-			else if(a[i]<0) {
-				step+=(-1-a[i]);
-				neg++;
-			}
-			else {
-				step+=(a[i]-1);
-				pos++;
-			}
+			insert(a,i);
 		}
-		if(neg%2==0) {
-			step+=zer;
-		}
-		else {
-			if(zer>0) {
-				step+=zer;
-			}
-			else {
-				step+=2;
-			}
-		}
-		return step;
     }
 };
 
 //{ Driver Code Starts.
+int main()
+{
+    int arr[1000],n,T,i;
 
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int N;
-        cin>>N;
-        
-        int arr[N];
-        for(int i=0; i<N; i++)
-            cin>>arr[i];
+    scanf("%d",&T);
 
-        Solution ob;
-        cout << ob.makeProductOne(arr,N) << endl;
+    while(T--){
+
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++)
+      scanf("%d",&arr[i]);
+
+    Solution ob;
+    ob.insertionSort(arr, n);
+    printArray(arr, n);
     }
     return 0;
 }
+
 // } Driver Code Ends
