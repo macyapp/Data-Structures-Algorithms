@@ -13,12 +13,12 @@ public:
 };
 
 void print(node* head) {
-    if(head==nullptr) {
-        cout<<endl;
-        return;
+    node* cur=head;
+    while(cur!=nullptr) {
+        cout<<cur->data<<" ";
+        cur=cur->next;
     }
-    cout<<head->data<<" ";
-    print(head->next);
+    cout<<endl;
 }
 
 int main() {
