@@ -13,22 +13,17 @@ public:
 };
 
 void print(node* head) {
-    if(head==nullptr) {
-        cout<<endl;
-        return;
+    node* cur=head;
+    while(cur!=nullptr) {
+        cout<<cur->data<<" ";
+        cur=cur->next;
     }
-    cout<<head->data<<" ";
-    print(head->next);
+    cout<<endl;
+}
+
+void push(node** head, int x) {
 }
 
 int main() {
-    node* a=new node(10);
-    node* b=new node(5);
-    node* c=new node(20);
-    node* d=new node(15);
-    a->next=b;
-    b->next=c;
-    c->next=d;
-    print(a);
-    print(a);
+    node* head=nullptr;
 }

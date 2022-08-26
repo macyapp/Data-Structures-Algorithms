@@ -1,18 +1,13 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 #define endl "\n"
 
-void solve() {
-    int a,b,c;
-    cin>>a>>b>>c;
-    cout<<max(a+b,max(b+c,c+a))<<endl;
-}
-
 int main() {
-    int t;
-    cin>>t;
-    while(t--) {
-        solve();
-    }
+    int x = 10, z = 20;
+    int &y = x;
+    y = z;
+    y = y+5;
+    cout << x << " " << y << " " << z << endl;
     return 0;
 }
