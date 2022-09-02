@@ -1,38 +1,54 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 class node {
-public:
+    public:
     int data;
     node *next;
-    node(int x) {
-        data=x;
-        next=NULL;
-    }
+    node(int x):data(x),next(nullptr) {}
 };
 
-class LinkedList {
-public:
-    node *head;
-    node *cur;
+void push(node **head,int x) {
+    node *tmp=new node(x);
+    node *cur=*head;
+    if(cur==nullptr) {
+        *head=tmp;
+        return;
+    }
+    while(cur->next!=nullptr) {
+        cur=cur->next;
+    }
+    cur->next=tmp;
+}
 
-    void printList() {
-        while(cur!=NULL) {
-            cout<<cur->data;
-            if(cur->next!=NULL)
-                cout<<"->";
+node *insertHead(node *head,int x) {
+    node *newNode=new node(x);
+    if(head==nullptr)
+        return newNode;
+    
+}
+
+void print(node *head) {
+    node *cur=head;
+    if(cur!=nullptr) {
+        while(cur!=nullptr) {
+            cout<<cur->data<<" ";
             cur=cur->next;
         }
-        cout<<"\n";
+        cout<<endl;
     }
-
-    void append(int x) {
-        
+    else {
+        cout<<"NULL\n";
     }
-};
+}
 
 int main() {
-    LinkedList ll;
-    ll.printList();
-    return 0;
+    node *head=nullptr;
+    int n,x;
+    cin>>n;
+    while(n--) {
+        cin>>x;
+        push(&head,x);
+    }
+    print(head);
 }
