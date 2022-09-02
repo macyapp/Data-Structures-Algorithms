@@ -21,11 +21,15 @@ void push(node **head,int x) {
     cur->next=tmp;
 }
 
-node *insertHead(node *head,int x) {
+node *insertPos(node *head,int x) {
     node *newNode=new node(x);
-    if(head==nullptr)
+    node *cur=head;
+    if(cur==nullptr)
         return newNode;
-    
+    while(cur->next!=nullptr)
+        cur=cur->next;
+    cur->next=newNode;
+    return head;
 }
 
 void print(node *head) {
@@ -50,5 +54,8 @@ int main() {
         cin>>x;
         push(&head,x);
     }
+    print(head);
+    cin>>x;
+    head=insertPos(head,x);
     print(head);
 }
