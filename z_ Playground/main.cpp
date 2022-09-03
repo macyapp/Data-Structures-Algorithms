@@ -1,13 +1,24 @@
 #include<iostream>
-#include<vector>
 using namespace std;
-#define endl "\n"
+
+void solve() {
+    int n,x,s=0,r=0;
+    cin>>n>>x;
+    int max_rating=0;
+    while(n--) {
+        cin>>s>>r;
+        if(r>max_rating && s<=x) {
+            max_rating=r;
+        }
+    }
+    cout<<max_rating<<endl;
+}
 
 int main() {
-    int x = 10, z = 20;
-    int &y = x;
-    y = z;
-    y = y+5;
-    cout << x << " " << y << " " << z << endl;
+    int t;
+    cin>>t;
+    while(t--) {
+        solve();
+    }
     return 0;
 }
