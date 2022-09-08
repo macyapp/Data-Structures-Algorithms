@@ -1,24 +1,17 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
-void solve() {
-    int n,x,s=0,r=0;
-    cin>>n>>x;
-    int max_rating=0;
-    while(n--) {
-        cin>>s>>r;
-        if(r>max_rating && s<=x) {
-            max_rating=r;
-        }
+void print(int n) {
+    if(n<1) {
+        return;
     }
-    cout<<max_rating<<endl;
+    print(n-1);
+    cout<<n<<" ";
 }
 
 int main() {
-    int t;
-    cin>>t;
-    while(t--) {
-        solve();
-    }
-    return 0;
+    print(9);
+    cout<<endl;
+    return 0;   
 }
