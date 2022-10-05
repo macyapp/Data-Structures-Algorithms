@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-#include <climits>
+#include<climits>
 using namespace std;
 
 void initialize(vector<int>& a,int n) {
