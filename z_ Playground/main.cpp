@@ -1,53 +1,54 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<climits>
+//{ Driver Code Starts
+#include<bits/stdc++.h>
 using namespace std;
+// } Driver Code Ends
 
-void initialize(vector<int>& a,int n) {
-    int i,input;
-    for(i=0;i<n;i++) {
-        cin>>input;
-        a.push_back(input);
-    }
-}
-
-void print(vector<int> a,int x,int y) {
-    int i;
-    for(i=x;i<y;i++) {
-        cout<<a[i]<<" ";
-    }
-    cout<<"\n";
-}
-
-void solve(vector<int>& a, int n) {
-    int i,j,start=0,end=0,s;
-    int cur=0,max=a[0];
-    for(i=0;i<n;i++) {
-        if(cur<=0) {
-            cur=a[i];
-            s=i+1;
+class Solution {
+    public:
+    //Function to return list of integers visited in snake pattern in matrix.
+    vector<int> snakePattern(vector<vector<int>>& matrix) {
+        // code here
+        vector<int> res;
+        int i,j;
+        for(i=0;i<matrix.size();i++) {
+            if(i%2==0) {
+                for(j=0;j<matrix[i].size();j++) {
+                    res.push_back(matrix[i][j]);
+                }
+            }
+            else {
+                for(j=matrix[i].size()-1;j>=0;j--) {
+                    res.push_back(matrix[i][j]);
+                }
+            }
         }
-        else {
-            cur+=a[i];
-        }
-        if(cur>max) {
-            max=cur;
-            start=s;
-            end=i;
-        }
+        return res;
     }
-    cout<<"Max Subarray Sum = "<<max<<"\n";
-    cout<<"Subarray:\n";
-    print(a,start,end);
-}
+};
 
+//{ Driver Code Starts.
 int main() {
-    int n;
-    cin>>n;
-    vector<int> a;
-    initialize(a,n);
-    print(a,0,n);
-    solve(a,n);
+    int t;
+    cin>>t;
+    
+    while(t--) {
+        int n;
+        cin>>n;
+        vector<vector<int>> matrix(n);
+        
+        for(int i=0; i<n; i++) {
+            matrix[i].assign(n,0);
+            for( int j=0; j<n; j++) {
+                cin>>matrix[i][j];
+            }
+        }
+
+        Solution ob;
+        vector<int> result = ob.snakePattern(matrix);
+        for (int i = 0; i < result.size(); i++)
+            cout<<result[i]<<" ";
+        cout<<endl;
+    }
     return 0;
 }
+// } Driver Code Ends
