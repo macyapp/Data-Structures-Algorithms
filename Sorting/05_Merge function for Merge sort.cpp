@@ -23,7 +23,7 @@ void solve(vi& a,int low,int mid,int high) {
     vi tmp(high-low+1);
     int i,j,k;
     i=low,j=mid+1,k=0;
-    while(i<=mid || j<=high) {
+    while(i<=mid && j<=high) {
         if(i>mid) {
             tmp[k++]=a[j++];
         }
