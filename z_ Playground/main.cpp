@@ -1,54 +1,20 @@
-//{ Driver Code Starts
-#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
 using namespace std;
-// } Driver Code Ends
+#define countOf(a) (sizeof(a)/sizeof(a[0]))
 
-class Solution {
-    public:
-    //Function to return list of integers visited in snake pattern in matrix.
-    vector<int> snakePattern(vector<vector<int>>& matrix) {
-        // code here
-        vector<int> res;
-        int i,j;
-        for(i=0;i<matrix.size();i++) {
-            if(i%2==0) {
-                for(j=0;j<matrix[i].size();j++) {
-                    res.push_back(matrix[i][j]);
-                }
-            }
-            else {
-                for(j=matrix[i].size()-1;j>=0;j--) {
-                    res.push_back(matrix[i][j]);
-                }
-            }
-        }
-        return res;
-    }
-};
-
-//{ Driver Code Starts.
 int main() {
-    int t;
-    cin>>t;
-    
-    while(t--) {
-        int n;
-        cin>>n;
-        vector<vector<int>> matrix(n);
-        
-        for(int i=0; i<n; i++) {
-            matrix[i].assign(n,0);
-            for( int j=0; j<n; j++) {
-                cin>>matrix[i][j];
-            }
-        }
-
-        Solution ob;
-        vector<int> result = ob.snakePattern(matrix);
-        for (int i = 0; i < result.size(); i++)
-            cout<<result[i]<<" ";
-        cout<<endl;
+    int a[]={10,15,5,20,8};
+    int n=countOf(a);
+    sort(a,a+n);        // Sort algorithm
+    // Address of first element and address just after the last element
+    for(int i=0;i<n;i++) {
+        cout<<a[i]<<" ";
     }
-    return 0;
+    cout<<endl;
+    if(binary_search(a,a+n,8))      // Binary Search algorithm
+        cout<<"Present\n";
+    else
+        cout<<"Not present\n";
+    return 0;   
 }
-// } Driver Code Ends

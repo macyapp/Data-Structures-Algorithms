@@ -2,19 +2,15 @@
 #include<cmath>
 using namespace std;
 
-int countDigits(int n) {
-    int digits;
-    if(n==0)
-        return 1;
-    if(n<0)
-        n=-n;
-    digits=log10(n)+1;
-    return digits;
+void solve() {
+    int n;
+    cin>>n;
+    int res;
+    res=log10(n)+1;
+    cout<<res<<endl;
 }
 
 int main() {
-    int num;
-    cin>>num;
-    
-    cout<<countDigits(num)<<'\n';
+    solve();
+    return 0;
 }
