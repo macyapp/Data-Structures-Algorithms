@@ -1,22 +1,15 @@
-/*
-Sum of 'n' natural numbers
-O(n^2)
-*/
 #include<iostream>
 using namespace std;
 
-int sum_n(int n) {
-    int i, j, sum=0;
-    for(i=1;i<=n;i++) {
-        for(j=1;j<=i;j++) {
-            sum++;
-        }
+void solve() {
+    int i,j,sum=0;
+    int n;
+    cin>>n;
+    for(i=0;i<n;i++) {
     }
-    return sum;
 }
 
 int main() {
-    int n=10;
-    cout<<"Sum of "<<n<<" natural numbers = "<<sum_n(n)<<'\n';;
+    solve();
     return 0;
 }
