@@ -1,20 +1,19 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 void solve() {
-    int a,b;
-    cin>>a>>b;
-    if(a==b||2*a<=b)
-        cout<<"yes\n";
-    else
-        cout<<"no\n";
+    int n;
+    cin>>n;
+    int i,j;
+    for(i=1;i<=n;i++) {
+        for(j=1;j<=i;j++) {
+            cout<<j<<" ";
+        }
+        cout<<endl;
+    }
 }
 
 int main() {
-    int t;
-    cin>>t;
-    while(t--) {
-        solve();
-    }
+    solve();
     return 0;
 }

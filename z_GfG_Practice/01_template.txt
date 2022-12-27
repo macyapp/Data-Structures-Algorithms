@@ -1,3 +1,0 @@
-#ifndef ONLINE_JUDGE
-freopen("ip.txt","r",stdin);
-#endif
