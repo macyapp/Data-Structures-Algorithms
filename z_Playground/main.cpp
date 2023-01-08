@@ -1,16 +1,16 @@
 #include<iostream>
 using namespace std;
 
+bool setBit(int n, int k) {
+    if((n>>(k-1))&1)
+        return true;
+    return false;
+}
+
 void solve() {
-    int n;
-    cin>>n;
-    int i,j;
-    for(i=1;i<=n;i++) {
-        for(j=1;j<=i;j++) {
-            cout<<j<<" ";
-        }
-        cout<<endl;
-    }
+    int n,k;
+    cin>>n>>k;
+    cout<<boolalpha<<setBit(n,k)<<endl;
 }
 
 int main() {
