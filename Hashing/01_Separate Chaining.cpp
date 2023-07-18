@@ -43,7 +43,6 @@ public:
 };
 
 int main() {
-    freopen("ip.txt","r",stdin);
     int i,tmp,n;
     cin>>n;
     Hash ob(n);
