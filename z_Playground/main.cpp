@@ -1,27 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void init(vector<vector<int>> &a, int k) {
-    for(vector<int> &x: a) {
-        cin>>x[0]>>x[1];
-    }
-}
-
-void print(vector<vector<int>> &a, int k) {
-    for(const vector<int> &x: a) {
-        cout<<x[0]<<' '<<x[1];
-        cout<<endl;
-    }
-    cout<<endl;
-}
-
 void solve() {
-    int n,m,k;
-    cin>>n>>m>>k;
-    int x,y;
-    vector<vector<int>> grid(k,vector<int>(2));
-    init(grid,k);
-    print(grid,k);
+    int n,i;
+    cin>>n;
+    unordered_map<int,int> ids;
+    int tmp;
+    int current_employees=0;
+    for(i=0; i<n; i++) {
+        cin>>tmp;
+        if(ids[tmp]>0) {
+            ids[tmp]--;
+            current_employees--;
+        }
+        else {
+            ids[tmp]++;
+            current_employees++;
+        }
+    }
+    cout<<current_employees<<endl;
 }
 
 int main() {
