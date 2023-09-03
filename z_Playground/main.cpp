@@ -1,10 +1,19 @@
 #include<iostream>
 using namespace std;
 
+class node {
+public:
+    int data;
+    node* next;
+    node(int x)
+    :data(x), next(nullptr) {
+    }
+};
+
 class stack {
 public:
     int *a;     // Dynamically allocating array
-    int top;   // Size of the stack
+    int top;    // Size of the stack
     int cap;    // Capacity
     stack(int c)
     :top(-1), a(new int[c]) {
