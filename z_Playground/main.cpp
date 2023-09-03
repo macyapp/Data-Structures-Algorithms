@@ -1,53 +1,46 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
 using namespace std;
 
-long long mergeAndCount(vector<int>& a, int low, int mid, int high) {
-    vector<int> tmp(high - low + 1);
-    int i, j, k;
-    long long inversions = 0;
-    i = low, j = mid + 1, k = 0;
-
-    while (i <= mid || j <= high) {
-        if(i<=mid && (j>high || a[i]<=a[j])) {
-            tmp[k++] = a[i++];
-        }
-        else {
-            tmp[k++] = a[j++];
-            inversions += mid - i + 1;  // Count inversions
-        }
+class stack {
+public:
+    int *a;     // Dynamically allocating array
+    int top;   // Size of the stack
+    int cap;    // Capacity
+    stack(int c)
+    :top(-1), a(new int[c]) {
     }
 
-    for (i = 0; i < k;) {
-        a[low++] = tmp[i++];
+    void push(int x) {
     }
 
-    return inversions;
-}
-
-long long mergeSortAndCount(vector<int>& a, int low, int high) {
-    long long inversions = 0;
-    if (low < high) {
-        int mid = low + (high - low) / 2;
-        inversions += mergeSortAndCount(a, low, mid);
-        inversions += mergeSortAndCount(a, mid + 1, high);
-        inversions += mergeAndCount(a, low, mid, high);
+    int pop() {
     }
-    return inversions;
-}
 
-long long countInversions(vector<int>& a) {
-    return mergeSortAndCount(a, 0, a.size() - 1);
+    int peek() {
+    }
+
+    int size() {
+    }
+
+    bool empty() {
+    }
+};
+
+void solve() {
+    stack s(5);
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    cout<<s.pop()<<endl;
+    cout<<s.size()<<endl;
+    cout<<s.peek()<<endl;
+    cout<<s.pop()<<endl;
+    cout<<s.pop()<<endl;
+    cout<<s.pop()<<endl;
+    cout<<boolalpha<<s.empty()<<endl;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-    long long inversions = countInversions(a);
-    cout << "Number of inversions: " << inversions << endl;
+    solve();
     return 0;
 }
