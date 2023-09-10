@@ -1,52 +1,16 @@
 #include<iostream>
 using namespace std;
 
-class node {
-public:
-    int data;
-    node* next;
-    node(int x)
-    :data(x), next(nullptr) {
-    }
-};
-
-class stack {
-public:
-    int *a;     // Dynamically allocating array
-    int top;    // Size of the stack
-    int cap;    // Capacity
-    stack(int c)
-    :top(-1), a(new int[c]) {
-    }
-
-    void push(int x) {
-    }
-
-    int pop() {
-    }
-
-    int peek() {
-    }
-
-    int size() {
-    }
-
-    bool empty() {
-    }
-};
+int fun(int n, int sum) {
+    if (n<1)
+        return 0;
+    return fun(n-1,sum);
+    return fun(n-3,sum);
+    return sum+1;
+}
 
 void solve() {
-    stack s(5);
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    cout<<s.pop()<<endl;
-    cout<<s.size()<<endl;
-    cout<<s.peek()<<endl;
-    cout<<s.pop()<<endl;
-    cout<<s.pop()<<endl;
-    cout<<s.pop()<<endl;
-    cout<<boolalpha<<s.empty()<<endl;
+    cout<<fun(5,0)<<endl;
 }
 
 int main() {
