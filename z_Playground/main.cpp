@@ -1,38 +1,23 @@
-#include <iostream>
-#include <algorithm>
-#include <climits>
-
+#include<iostream>
 using namespace std;
 
-int kadaneAlgorithm(int array[], int size) {
-  int currentSum = 0;
-  int maxSoFar = INT_MIN;
-  int allNegativeSum = array[0];
-
-  for (int i = 0; i < size; i++) {
-    currentSum += array[i];
-    if (currentSum < 0) {
-      currentSum = 0;
+void solve() {
+    int n=5;
+    int i,j;
+    char c;
+    for(i=1; i<=n; i++) {
+        for(j=n; j>i; j--) {
+            cout<<"  ";
+        }
+        for(j=1; j<=i; j++) {
+            c='a'+j-1;
+            cout<<c<<" ";
+        }
+        cout<<endl;
     }
-    maxSoFar = max(currentSum, maxSoFar);
-    allNegativeSum = min(allNegativeSum, array[i]);
-  }
-
-  if (allNegativeSum == 0) {
-    return maxSoFar;
-  }
-  else {
-    return allNegativeSum;
-  }
 }
 
 int main() {
-  int array[] = {-2, -3, 4, -1, -2, 1, 5, -3};
-  int size = sizeof(array) / sizeof(array[0]);
-
-  int maxSum = kadaneAlgorithm(array, size);
-
-  cout << "The maximum sum of a contiguous subarray is: " << maxSum << endl;
-
-  return 0;
+    solve();
+    return 0;
 }
