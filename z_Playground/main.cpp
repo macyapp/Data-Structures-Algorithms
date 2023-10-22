@@ -2,16 +2,11 @@
 using namespace std;
 
 void solve() {
-    int n=5;
     int i,j;
-    char c;
+    int n=8;
     for(i=1; i<=n; i++) {
-        for(j=n; j>i; j--) {
-            cout<<"  ";
-        }
         for(j=1; j<=i; j++) {
-            c='a'+j-1;
-            cout<<c<<" ";
+            cout<<(n*(j-1)+i-(j*(j-1)/2))<<' ';
         }
         cout<<endl;
     }
