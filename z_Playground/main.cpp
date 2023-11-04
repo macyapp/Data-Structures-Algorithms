@@ -1,14 +1,28 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 void solve() {
-    int i,j;
-    int n=8;
-    for(i=1; i<=n; i++) {
-        for(j=1; j<=i; j++) {
-            cout<<(n*(j-1)+i-(j*(j-1)/2))<<' ';
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int countA=0, countB=0;
+    for(const auto& c: s) {
+        if(c=='A') {
+            countA++;
         }
-        cout<<endl;
+        else if(c=='D') {
+            countB++;
+        }
+    }
+    if(countA==countB) {
+        cout<<"Friendship\n";
+    }
+    else if(countA>countB) {
+        cout<<"Anton\n";
+    }
+    else {
+        cout<<"Danik\n";
     }
 }
 
