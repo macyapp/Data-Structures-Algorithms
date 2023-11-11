@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+    font-family: sans-serif;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    /* Center content vertically */
+    min-height: 100vh;      /* Ensure full viewport height */
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.established {
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+h1, h2, p {
+    text-align: center;
+}
+
+.menu {
+    width: 85%;
+    max-width: 550px;
+    margin: 25px;       /* Add margin for better spacing */
+    padding: 20px;
+    background-color: burlywood;
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle box shadow */
+}
+
+img {
+    display: block;
+    margin: 12.5px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+hr {
+    height: 4px;
+    background-color: brown;
+    border: none;   /* Remove border to avoid doubling with box shadow */
+    margin-bottom: 25px;
+}
+
+.bottom-line {
+    margin-top: 25px;
+}
+
+h1, h2 {
+    font-family: 'Impact', serif; /* Added quotes around font name */
+}
+
+.item {
+    display: flex;
+    justify-content: space-between; /* Align flavor and price at each end */
+    margin-top: 10px; /* Adjust margin for better spacing */
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.flavor, .dessert {
+    text-align: left;
+    width: 70%; /* Slightly reduced width for better alignment */
+}
+
+.price {
+    text-align: right;
+    width: 30%; /* Adjusted width for better alignment */
+}
+
+/* FOOTER */
+footer {
+    font-size: 14px;
+}
+
+.address {
+    margin-bottom: 5px;
+}
+
+a {
+    color: black;
+    text-decoration: none; /* Remove underline */
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: brown;
+}
+
+a:active {
+    color: brown;
+}
