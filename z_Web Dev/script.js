@@ -1,18 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const uselessLink = document.getElementById("uselessLink");
-    const changeColorLink = document.getElementById("changeColorLink");
-
-    // Adding click event to the useless link
-    uselessLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevents the default action of the link
-        // Add any specific action here for the useless link
-    });
-
-    // Adding click event to change the background color of the body
-    changeColorLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevents the default action of the link
-        document.body.style.backgroundColor = 'red'; // Changes the background color to red
-    });
+document.getElementById("tryit").addEventListener('mouseover', function() {
+    document.getElementById("demo").innerHTML =
+        "<strong>typeof</strong> undefined = " + typeof undefined + "<br>" +
+        "<strong>typeof</strong> null = " + typeof null + "<br><br>" +
+        "(null === undefined)? " + (null === undefined) + "<br>" +
+        "(null === undefined)? " + (null == undefined);
 });
 
 document.getElementById("reload").addEventListener('mouseover', () => {
