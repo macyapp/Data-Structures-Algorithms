@@ -1,32 +1,11 @@
-#include<iostream>
-using namespace std;
-
-void initialize(int t[], int k) {
-    int i;
-    // The loop generates the no. of set bits for each index value
-    t[0]=0;
-    for(i=1; i<k; i++) {
-        // This is a recursive generation using Brian Kernighan's Algorithm
-        t[i]=t[i&(i-1)]+1;
+int gcd(int n, int m) {
+    if(n%m==0)
+        return m;
+    if(n<m)
+        swap(n, m);
+    while(m>0) {
+        n=n%m;
+        swap(n,m);
     }
-}
-
-void solve() {
-    int k=8;
-    int n;
-    int size=1<<k;
-    int table[size];
-    initialize(table,size);
-    cin>>n;
-    int count=0;
-    while(n!=0) {
-        count+=table[n&0xff];
-        n>>=k;
-    }
-    cout<<count<<endl;
-}
-
-int main() {
-    solve();
-    return 0;
+    return n;
 }
