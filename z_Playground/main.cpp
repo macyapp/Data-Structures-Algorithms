@@ -1,62 +1,54 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 class Solution {
 public:
-    void print(vector<vector<int>>& grid) {
-        for (auto& row : grid) {
-            for (auto& element : row) {
-                cout << element << " ";
-            }
-            cout << endl;
-        }
-        cout<<endl;
-    }
+    pair<int, int> maxSubArrayLength(vector<int>& nums) {
+        int n = nums.size();
+        int curSubarrayMax = 0, maxSum = 0;     // Initialize maxSum as 0
+        int maxLength = 0, curLength = 0;
+        int maxElement = nums[0];               // To handle all negative numbers
 
-    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
-        int n = grid.size();
-        int repeating, missing;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                print(grid);
-                int row = (grid[i][j] - 1) / n;
-                int col = (grid[i][j] - 1) % n;
-                if (grid[i][j] >= 1 && grid[i][j] <= n * n) {
-                    swap(grid[i][j], grid[row][col]);
-                    if (grid[i][j] == grid[row][col]) {
-                        repeating = grid[i][j];
-                    }
+        for(int i = 0; i < n; i++) {
+            curSubarrayMax += nums[i];
+            if(curSubarrayMax < 0) {
+                curSubarrayMax = 0;             // Reset if sum becomes negative
+                curLength = 0;                  // Reset current length as well
+            }
+            else {
+                curLength++;                    // Increment length only if the sum is positive
+                if(curSubarrayMax > maxSum) {
+                    maxSum = curSubarrayMax;    // Update maxSum and maxLength
+                    maxLength = curLength;
                 }
             }
+
+            // Update maxElement if nums[i] is greater than maxElement
+            maxElement = max(nums[i],maxElement);
         }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                cout<<grid[i][j]<<" "<<(i*n)+j+1<<endl;
-                if (grid[i][j] != ((i*n)+j+1)) {
-                    missing = (i*n)+j+1;
-                    break;
-                }
-            }
-        }
-        return { repeating, missing };
+        // If maxSum is still 0, it means all numbers are negative.
+        // So, return the maximum element (which is the least negative number) and its length.
+        return (maxSum==0)?make_pair(maxElement, 1):make_pair(maxSum, maxLength);
     }
 };
 
 int main() {
-    vector<vector<int>> inputGrid = {
-        {1,1},
-        {3,2}
-        // Add your grid here
-    };
-
     Solution solution;
-    vector<int> result = solution.findMissingAndRepeatedValues(inputGrid);
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n; // Get the number of elements from the user
 
-    cout << "Repeated value: " << result[0] << endl;
-    cout << "Missing value: " << result[1] << endl;
+    vector<int> nums(n);    // Create a vector with n elements
 
+    cout << "Enter " << n << " integers:" << endl;
+    for(int i = 0; i < n; i++) {
+        cin >> nums[i];     // Read each integer from the user
+    }
+
+    pair<int, int> result = solution.maxSubArrayLength(nums);
+    cout << "Maximum subarray sum: " << result.first << endl;       // Print the maximum sum
+    cout << "Maximum subarray length: " << result.second << endl;   // Print the maximum length
     return 0;
 }
